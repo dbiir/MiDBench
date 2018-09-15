@@ -10,7 +10,8 @@ IP = '127.0.0.1'
 PORT_NUMBER = 8898
 
 #This class will handles any incoming request from
-#the browser 
+#the browser
+
 class myHandler(BaseHTTPRequestHandler):
 
     #Handler for the GET requests
