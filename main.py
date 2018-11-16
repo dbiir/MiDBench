@@ -62,11 +62,14 @@ def main(usename, password, raw_graph_class_node, raw_graph_class_edge, query_si
     socket.wfile.write(("Start to Analyze ！<br>").encode())
     ge = GraphExporter()
     raw_graph, g1_level, g2_level = ge.export(uri, usename, password, raw_graph_class_node, raw_graph_class_edge)
+
     #
     # # Create new graph (including dumping to file)
     # # gg = GraphGenerator(raw_graph, g1_level, g2_level, graph_size, graph_level, graph_number)
     print("Analyze End!")
     socket.wfile.write(("Analyze End!！<br>").encode())
+
+
     gg = GraphGenerator(raw_graph, (g1_level + 1), (g2_level + 1), graph_conf,base_path,base_path_data,base_path_result)
     new_graphs, node_id, edge_id = gg.create()
     print("BOM Generate End!")

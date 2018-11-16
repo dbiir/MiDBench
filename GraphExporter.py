@@ -89,6 +89,8 @@ class GraphExporter:
                     iname_dict[i][j]['level_g2'] = 0
         return iname_dict, max_level_g1, max_level_g2
 
+
+
     def export(self, uri, usename, password, class_node, class_edge):
         driver = GraphDatabase.driver(uri, auth=(usename, password))
         with driver.session() as session:
@@ -96,5 +98,12 @@ class GraphExporter:
                 raw_graph, g1_level, g2_level = self.__get_distribution_stat(tx, self.__get_item_names(tx, class_node), class_node, class_edge)
         print("[INFO] Finish getting raw graph from database. ("+str(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))+")")
         driver.close()
-
+        # self.writeAnalyzed(self,"raw_graph.txt",raw_graph)
+        # self.writeAnalyzed(self, "g1_level.txt", g1_level)
+        # self.writeAnalyzed(self, "g2_level.txt", g2_level)
         return raw_graph, g1_level, g2_level
+
+    def writeAnalyzed(self, fileName, content):
+        fppp = open(self.__base_path_data + "/" + fileName, "a")
+        fppp.write(content)
+        fppp.close()

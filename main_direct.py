@@ -12,11 +12,18 @@ if __name__ == "__main__":
     print ("[INFO] Start. ("+str(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))+")")
 
     # Neo4j database configuration
-    uri = "bolt://10.77.50.193:5002"
+    # uri = "bolt://10.77.50.193:5002"
+    # usename = "neo4j"
+    # password = "xiaojian"
+    # raw_graph_class_node = "item_1"
+    # raw_graph_class_edge = "rel_1"
+
+
+    uri = "bolt://127.0.0.1:7687"
     usename = "neo4j"
     password = "xiaojian"
-    raw_graph_class_node = "item_1"
-    raw_graph_class_edge = "rel_1"
+    raw_graph_class_node = "weitem"
+    raw_graph_class_edge = "werel"
 
     # 使用datetime.now()
     now = datetime.datetime.now()
@@ -37,7 +44,8 @@ if __name__ == "__main__":
         os.makedirs(base_path_result)
 
     #获取服务器上neo4j（图数据库）的路径
-    graph_path = "/software/mark/neo4j-community-3.4.6"
+    # graph_path = "/software/mark/neo4j-community-3.4.6"
+    graph_path = "/Users/mark/Documents/MasterLife/GraphDB/neo4j-community-3.4.6"
 
     # New graph configuration: graph_conf[size, level, query_num]
     query_size = 1
@@ -46,7 +54,7 @@ if __name__ == "__main__":
     # graph_size = [ [3000, 7, 1], [6000, 10, 1], [12000, 14, 1], [24000, 20, 1] ]
 
     # 2000，5，1&2000, 6, 1
-    graph_size = "400000,20,1"
+    graph_size = "24000,15,1"
     _graph_size = graph_size.split("&")
     graph_conf = []
     for i in _graph_size:
