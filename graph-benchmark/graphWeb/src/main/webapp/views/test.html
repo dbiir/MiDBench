@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/graph-benchmark/layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="/graph-benchmark/layui/css/admin.css" media="all">
+    <link rel="stylesheet" href="/graph-benchmark/layui/css/cascader.css" media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+
+<style>
+#jobInfo{
+   min-height:100px;
+   overflow-y:auto;
+   max-height:300px;
+}
+/* loading css start*/
+  /* Toast */
+    .ibox {clear:both;margin: 0px;padding: 0px;width:100%;}
+    .ibox .ibox-content {clear: both;line-height: normal;padding:25px;}
+    .web_transparent {position: fixed;z-index: 1000;top: 0;right: 0;left: 0;bottom: 0;}
+    .web-toast {position: fixed;z-index: 5000;height: 90px;width: 16em;min-height: 4em;top: 365px;margin-left: 120px;background: rgba(40, 40, 40, 0.75);text-align: center;border-radius: 5px;color: #FFFFFF;} 
+    .web-toast_content { font-size: 16px;}
+    .sk-spinner-three-bounce.sk-spinner{margin: 20px auto 10px;text-align: center; }
+    .sk-spinner-three-bounce div {width: 18px;height: 18px;background-color: #f6296d;border-radius: 100%;display: inline-block;-webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;animation: sk-threeBounceDelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+    .sk-spinner-three-bounce .sk-bounce1 {-webkit-animation-delay: -.32s;animation-delay: -.32s;}
+    .sk-spinner-three-bounce .sk-bounce2 {-webkit-animation-delay: -.16s;animation-delay: -.16s;}
+    @-webkit-keyframes sk-threeBounceDelay {
+        0%,100%,80% {-webkit-transform: scale(0);transform: scale(0);}
+        40% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+    @keyframes sk-threeBounceDelay {
+    0%,100%,80% {-webkit-transform: scale(0);transform: scale(0);}
+    40% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+    /*spinner*/
+    .pinkspin{color:#ef1a60;}
+    .greenspin{color:#07b30b;}
+     /* loading css end*/
+</style>
+
+<body>
+
+<fieldset class="layui-elem-field layui-field-title">
+  <legend style="text-align: center;">数据生成器配置</legend>
+</fieldset>
+ 
+<div class="layui-form-item">
+        <label class="layui-form-label">选择框</label>
+        <div class="layui-input-block" >
+            <input type="text" id="a" class="layui-input" placeholder="input..." readonly="readonly">
+        </div>
+    </div>
+    
+<script src="/graph-benchmark/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="/graph-benchmark/views/js/loading.js"></script> 
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.config({
+        base: "/graph-benchmark/lay/modules/"
+    }).use(['form',"jquery","cascader"], function(){
+        var $ = layui.jquery;
+        var cascader = layui.cascader;
+        var data = [
+            {
+                value: 'A',
+                label: 'a',
+            },
+            {
+                value: 'C',
+                label: 'c',
+            }
+        ]
+        cascader({
+        	    elem:"#a",
+            data: data,
+            success: function (valData,labelData) {
+                console.log(valData);
+                console.log(labelData);
+            }
+        });
+        
+    });
+</script>
+
+</body>
+</html>

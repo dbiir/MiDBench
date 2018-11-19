@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html style="background-color: #fff;">
+   <head>
+       <meta charset="utf-8">
+        <link rel="stylesheet" href="/graph-benchmark/layui/css/layui.css"  media="all">
+	    <link rel="stylesheet" href="/graph-benchmark/layui/css/admin.css" media="all">
+	    <link rel="stylesheet" href="/graph-benchmark/layui/css/cascader.css" media="all">
+   </head>
+   <style>
+
+/* loading css start*/
+  /* Toast */
+    .ibox {clear:both;margin: 0px;padding: 0px;width:100%;}
+    .ibox .ibox-content {clear: both;line-height: normal;padding:25px;}
+    .web_transparent {position: fixed;z-index: 1000;top: 0;right: 0;left: 0;bottom: 0;}
+    .web-toast {position: fixed;z-index: 5000;height: 90px;width: 16em;min-height: 4em;top: 365px;margin-left: 120px;background: rgba(40, 40, 40, 0.75);text-align: center;border-radius: 5px;color: #FFFFFF;} 
+    .web-toast_content { font-size: 16px;}
+    .sk-spinner-three-bounce.sk-spinner{margin: 20px auto 10px;text-align: center; }
+    .sk-spinner-three-bounce div {width: 18px;height: 18px;background-color: #f6296d;border-radius: 100%;display: inline-block;-webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;animation: sk-threeBounceDelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+    .sk-spinner-three-bounce .sk-bounce1 {-webkit-animation-delay: -.32s;animation-delay: -.32s;}
+    .sk-spinner-three-bounce .sk-bounce2 {-webkit-animation-delay: -.16s;animation-delay: -.16s;}
+    @-webkit-keyframes sk-threeBounceDelay {
+        0%,100%,80% {-webkit-transform: scale(0);transform: scale(0);}
+        40% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+    @keyframes sk-threeBounceDelay {
+    0%,100%,80% {-webkit-transform: scale(0);transform: scale(0);}
+    40% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+    /*spinner*/
+    .pinkspin{color:#ef1a60;}
+    .greenspin{color:#07b30b;}
+     /* loading css end*/
+</style>
+   <body>
+   <div class="layui-form-item" style="margin-top:20px;">
+        <label class="layui-form-label">展示图</label>
+        <div class="layui-input-block" >
+            <input type="text" id="a" class="layui-input" placeholder="请选择要展示的图数据集" readonly="readonly">
+        </div>
+    </div>
+    
+    <!--  <label class="layui-form-label">复选框</label> -->
+    <div class="layui-input-block1" style="margin-left:22px;">
+      <input type="checkbox" name="zylj" checked="checked"  onclick="checkboxOnclick(this,0)">专用零件&nbsp;
+      <input type="checkbox" name="zylj"  checked="checked" onclick="checkboxOnclick(this,1)">企标件 &nbsp;
+      <input type="checkbox" name="zylj" checked="checked" onclick="checkboxOnclick(this,2)">机加件&nbsp;
+      <input type="checkbox" name="zylj" checked="checked" onclick="checkboxOnclick(this,3)">国标件&nbsp;
+      <input type="checkbox" name="zylj" checked="checked" onclick="checkboxOnclick(this,4)">非标外购件&nbsp;
+      <input type="checkbox" name="zylj" checked="checked" onclick="checkboxOnclick(this,5)">专用部件&nbsp;
+      <input type="checkbox" name="zylj" checked="checked" onclick="checkboxOnclick(this,6)">产品配套&nbsp;
+    </div>
+    
+    
+    <div id="container" style="height: 900px;width:1800px;"></div>
+    <script type="text/javascript" src="/graph-benchmark/views/js/echarts.js"></script>
+       <script type="text/javascript" src="/graph-benchmark/views/js/jquery.js"></script>
+    <script src="/graph-benchmark/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="/graph-benchmark/views/js/loading.js"></script> 
+    <script type="text/javascript">
+    
+    var g_graphNames;
+    var g_nodes =  [];
+    var g_edges = [];
+    
+    layui.config({
+        base: "/graph-benchmark/lay/modules/"
+    }).use(["jquery","cascader"], function(){
+   	 
+        var $ = layui.jquery;
+        var datas = [];
+        //----ajax start--
+     	$.ajax({
+        url: 'http://localhost:8080/graph-benchmark/highEchart/getContentList',
+        success: function(redata) {
+    		console.log(redata.length)
+    		for (var k = 0; k < redata.length-1; k++){
+    			var ele = {}
+    			console.log(redata[k].split("&")[1] +"("+redata[k].split("&")[0]+")")
+    			ele.value = redata[k].split("&")[1]
+    			ele.label = redata[k].split("&")[1] +"("+redata[k].split("&")[0]+")"
+    			datas.push(ele)
+    		}
+    		console.log(datas)
+    		 var cascader = layui.cascader;
+    	     cascader({
+    	     	    elem:"#a",
+    	         data: datas,
+    	         success: function (valData,labelData) {
+    	             console.log(valData);
+    	             console.log(labelData);
+    	             requestData(valData)
+    	             g_graphNames = valData
+    	             //console.log("kkk")
+    	         }
+    	     });
+        },
+        cache: false
+      });
+     //----ajax end--
+    });
+    
+    
+    
+   //=======click start========
+	var x=[];
+	function checkboxOnclick(checkbox,a){
+ 	if ( checkbox.checked == true || checkbox.checked == false){
+ 		console.log(g_graphNames)
+
+ 	    	 Init.WebToast("BOM重载中...");
+ 	    	 var nodes=[]
+ 	    	 var edges=[]
+ 	    	 var names = document.getElementsByName("zylj");            
+             //var flag = false ;//标记判断是否选中一个                 
+             for(var i=0;i<names.length;i++){  
+                 if(names[i].checked){  
+                         x[i]=1; 
+                  }  
+                 else{
+                	 x[i]=0;
+                 }
+              }  
+ 	    // ---------------绘点---------
+ 	    		for (i = 1; i < g_nodes.length; i++) {
+    		 	var node = {}
+	    	    	node.id = g_nodes[i].id
+	    	    	node.name = g_nodes[i].name
+    		 	var wllx = g_nodes[i].wllx
+    		 	
+    		 	if(wllx=="专用零件"&&x[0]==1){
+    		 		node.category = 0
+    		 		node.symbolSize = 10
+	    	    	nodes.push(node)
+    		 	}
+    		 	if(wllx=="企标件"&&x[1]==1){
+    		 		node.category = 1
+    		 		node.symbolSize = 12
+	    	    	nodes.push(node)
+    		 	}
+    		 	if(wllx=="机加件"&&x[2]==1){
+    		 		node.category = 2
+    		 		node.symbolSize = 14
+	    	    	nodes.push(node)
+    		 	}
+    		 	if(wllx=="国标件"&&x[3]==1){
+    		 		node.category = 3
+    		 		node.symbolSize = 16
+	    	    	nodes.push(node)
+    		 	}
+    		 	if(wllx=="非标外购件"&&x[4]==1){
+    		 		node.category = 4
+    		 		node.symbolSize = 18
+	    	    	nodes.push(node)
+    		 	}
+    		 	if(wllx=="专用部件"&&x[5]==1){
+    		 		node.category = 5
+    		 		node.symbolSize = 20
+	    	    	nodes.push(node)
+    		 	}
+    		 	if(wllx=="产品配套"&&x[6]==1){
+    		 		node.category = 6
+    		 		node.symbolSize = 22
+	    	    	nodes.push(node)
+    		 	}
+    		 	
+    		}
+ 	    		console.log(nodes)
+ 	    //--------------------绘边-------------------------	  		  
+ 	    	    	for (i = 1; i < g_edges.length; i++) {
+ 	    	    	 	var edge = {}
+ 	    		    	edge.id = g_edges[i].id
+ 	    		    	edge.source =  g_edges[i].source
+ 	    		    	edge.target =  g_edges[i].target
+ 	    		    	edges.push(edge)
+ 	    	    		}
+ 	    console.log(edges)
+ 	    			//停止加载框
+ 	    			Init.ClearToast("#webToast", 1)
+ 	    	    	
+ 	    //----------------------------------		
+ 	    var dom = document.getElementById("container");
+ 		var myChart = echarts.init(dom);
+ 		var app = {};
+ 		option = null;
+ 		app.title = '力引导布局';
+ 		var categories = ["专用零件","企标件","机加件","国标件","非标外购件","专用部件","产品配套"];
+ 	    option = {
+ 	        title: {
+ 	            text: 'Les Miserables',
+ 	            subtext: 'Default layout',
+ 	            top: 'bottom',
+ 	            left: 'right'
+ 	        },
+ 	        tooltip: {},
+ 	        legend: [{
+ 	            data: categories.map(function (a) {
+ 	                return a.name;
+ 	            })
+ 	        }],
+ 	        animation: false,
+ 	        series : [
+ 	            {
+ 	                name: 'Les Miserables',
+ 	                type: 'graph',
+ 	                layout: 'force',
+ 	                data: nodes,
+ 	                links: edges,
+ 	                categories: categories,
+ 	                roam: true,
+ 	                label: {
+ 	                    normal: {
+ 	                        position: 'right'
+ 	                    }
+ 	                },
+ 	                force: {
+ 	                    repulsion: 150
+ 	                }
+ 	            }
+ 	        ]
+ 	    };
+
+ 	    myChart.setOption(option);
+ 		if (option && typeof option === "object") {
+ 		    myChart.setOption(option, true);
+ 		}
+ 	    	  
+	}
+}
+	//=====click end===
+    
+    
+  
+    
+   //--requestdata start---- 
+    function requestData(graphNames) {
+/*     	//console.log("jjj")
+    	document.getElementById("canvas1").innerHTML =  ""; */
+    	 Init.WebToast("BOM图绘制中...");
+   
+    	  var nodes = []
+    	  var edges = []
+    	  $.ajax({
+    	    url: 'http://localhost:8080/graph-benchmark/highEchart/getGraphNode',
+    	    data: {graphName:escape(graphNames)},
+    	    success: function(data) {
+    	    	console.log(data.length)
+    	    	console.log(data)
+    // ---------------绘点---------
+    		for (i = 1; i < data.length; i++) {
+    		 	var node = {}
+	    	    	node.id = data[i].split(",")[0]
+	    	    node.name = data[i].split(",")[0]+","+data[i].split(",")[3]
+    		 	node.wllx = data[i].split(",")[9]
+    		 	var wllx = data[i].split(",")[9]
+    		 	if(wllx=="专用零件"){
+    		 		node.category = 0
+    		 	}else if(wllx=="企标件"){
+    		 		node.category = 1
+    		 	}else if(wllx=="机加件"){
+		 		node.category = 2
+		 	}else if(wllx=="国标件"){
+		 		node.category = 3
+		 	}else if(wllx=="非标外购件"){
+		 		node.category = 4
+		 	}else if(wllx=="专用部件"){
+		 		node.category = 5
+		 	}else if(wllx=="产品配套"){
+		 		node.category = 6
+		 	}
+	    	    	node.symbolSize = 18
+	    	    	nodes.push(node)
+    		}
+    	    	g_nodes = nodes;
+    		   
+    	    	$.ajax({
+    	    url: 'http://localhost:8080/graph-benchmark/highEchart/getGraphEdge',
+    	    data: {graphName:escape(graphNames)},
+    	    success: function(data2) {
+    //--------------------绘边-------------------------	  		  
+    	    	for (i = 1; i < data2.length; i++) {
+    	    	 	var edge = {}
+    		    	edge.id = data2[i].split(",")[0],
+    		    	edge.source =  parseInt(data2[i].split(",")[1]),
+    		    	edge.target =  parseInt(data2[i].split(",")[2])
+    		    	edges.push(edge)
+    	    		}
+    			g_edges = edges;//赋值给全局变量，缓存
+    			//停止加载框
+    			Init.ClearToast("#webToast", 1)
+    	    	
+    //----------------------------------		
+    var dom = document.getElementById("container");
+	var myChart = echarts.init(dom);
+	var app = {};
+	option = null;
+	app.title = '图数据展示';
+
+//myChart.showLoading();
+    //myChart.hideLoading();
+
+	var categories = ["专用零件","企标件","机加件","国标件","非标外购件","专用部件","产品配套"];
+ 
+    option = {
+        title: {
+            text: 'BOM部件信息',
+            subtext: 'Default layout',
+            top: 'bottom',
+            left: 'right'
+        },
+        tooltip: {},
+        legend: [{
+            // selectedMode: 'single',
+            data: categories.map(function (a) {
+                return a.name;
+            })
+        }],
+        animation: false,
+        series : [
+            {
+                name: 'BOM部件',
+                type: 'graph',
+                layout: 'force',
+                data: nodes,
+                links: edges,
+                categories: categories,
+                roam: true,
+                label: {
+                    normal: {
+                        position: 'right'
+                    }
+                },
+                force: {
+                    repulsion: 150
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+	
+	if (option && typeof option === "object") {
+	    myChart.setOption(option, true);
+	}
+    	    },
+    	    cache: false
+    	  });
+    	    	
+    	    },
+    	    cache: false
+    	  });
+    	} 
+	//----requestdata end--
+    </script>
+    
+   </body>
+</html>

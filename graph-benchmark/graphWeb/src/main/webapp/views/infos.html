@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html style="background-color: #ccc;">
+<head>
+<meta charset="UTF-8">
+  <link rel="stylesheet" href="/graph-benchmark/layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="/graph-benchmark/layui/css/admin.css" media="all">
+    <link rel="stylesheet" href="/graph-benchmark/layui/css/cascader.css" media="all">
+<title>Insert title here</title>
+
+</head>
+<style>
+.line1{
+   
+}
+.line2{
+    margin-left: 25px;
+}
+
+/* loading css start*/
+  /* Toast */
+    .ibox {clear:both;margin: 0px;padding: 0px;width:100%;}
+    .ibox .ibox-content {clear: both;line-height: normal;padding:25px;}
+    .web_transparent {position: fixed;z-index: 1000;top: 0;right: 0;left: 0;bottom: 0;}
+    .web-toast {position: fixed;z-index: 5000;width: 16em;min-height: 4em;top: 365px;margin-left: 120px;background: rgba(40, 40, 40, 0.75);text-align: center;border-radius: 5px;color: #FFFFFF;} 
+    .web-toast_content { font-size: 16px;}
+    .sk-spinner-three-bounce.sk-spinner{margin: 20px auto 10px;text-align: center; }
+    .sk-spinner-three-bounce div {width: 18px;height: 18px;background-color: #f6296d;border-radius: 100%;display: inline-block;-webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;animation: sk-threeBounceDelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+    .sk-spinner-three-bounce .sk-bounce1 {-webkit-animation-delay: -.32s;animation-delay: -.32s;}
+    .sk-spinner-three-bounce .sk-bounce2 {-webkit-animation-delay: -.16s;animation-delay: -.16s;}
+    @-webkit-keyframes sk-threeBounceDelay {
+        0%,100%,80% {-webkit-transform: scale(0);transform: scale(0);}
+        40% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+    @keyframes sk-threeBounceDelay {
+    0%,100%,80% {-webkit-transform: scale(0);transform: scale(0);}
+    40% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+    /*spinner*/
+    .pinkspin{color:#ef1a60;}
+    .greenspin{color:#07b30b;}
+.layui-form-label {
+    float: left;
+    display: block;
+    padding: 9px 15px;
+    width: 80px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: right;
+    }   
+ .layui-input-block1 {
+    margin-left: 110px;
+    min-height: 36px;
+    margin-top:20px;  
+    } 
+     /* loading css end*/
+</style>
+
+<body bgcolor="#fff">
+	<div style="text-align: center;background:#fff;margin:0 0 20px;">
+	<h2 style="padding-top:10px">InGraphDB性能测试</h2>
+	</div>
+	<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    		
+   <div id="instru" style="width: 400px;height:400px; margin-top: 20px;margin-left:120px;float:left;background:#fff;">
+    <h4 class="line1">测试环境</h4>
+    <h5 class="line2">Linux，InGraphDB</h5>
+    <h4 class="line1">测试数据</h4>
+    <h5 class="line2">由模拟工业真实的BOM数据生产的数据，详情见【图数据展示】模块</h5>
+    <h4 class="line1">测试负载</h4>
+    <h5 class="line2">生成从某 一节点的所有结构(generate_structure)、查询节点的使用情况(where_used)、 比较两个结构的差异(structure_diff)、结构聚合和统计(structure_aggr)。</h5>
+    <h5 class="line2">Q1:where_used":生成从某一节点的所有结构, 即通过某一节点开始进行深度遍历，输出所有路径</h5>
+    <h5 class="line2">Q2:generate_structure":查询节点的使用情况, 即输出某个节点的所有父亲节点</h5>
+    <h5 class="line2">Q3:structure_diff":比较两个结构的差异,即比较两个子树的差异，也是深度遍历出所有结构再通过笛卡尔积进行比较</h5>
+    <h5 class="line2">Q4~7:struct_aggr":结构聚合和统计,即计算子树上所有节点的某一个参数的和</h5>
+    </div>
+    <div style="float:left;margin-top: 20px;margin-left:120px;">
+    		
+    		<div class="layui-form-item" style="margin-top:10px;">
+	        <label class="layui-form-label">选择图</label>
+	        <div class="layui-input-block" >
+	            <input type="text" id="a" class="layui-input" placeholder="请选择要测试的图数据集" readonly="readonly">
+	        </div>
+    		</div>
+    		
+    		<div id="main" style="width: 600px;height:400px; "></div>
+    </div>
+    
+</div>
+<script type="text/javascript" src="/graph-benchmark/views/js/jquery.js"></script>
+<script type="text/javascript" src="/graph-benchmark/views/js/echarts.min.js"></script>
+<script type="text/javascript" src="/graph-benchmark/views/js/loading.js"></script> 
+<script src="/graph-benchmark/layui/layui.js" charset="utf-8"></script>
+
+<script>
+    layui.config({
+        base: "/graph-benchmark/lay/modules/"
+    }).use(['form',"jquery","cascader"], function(){
+        var $ = layui.jquery;
+        var datas = [];
+        //----
+      	$.ajax({
+         url: 'http://localhost:8080/graph-benchmark/highEchart/getContentList',
+         success: function(redata) {
+     		//document.getElementById("edge").innerHTML = data2.length-1;
+     		console.log(redata.length)
+     		for (var k = 0; k < redata.length-1; k++){
+     			var ele = {}
+     			console.log(redata[k].split("&")[1] +"("+redata[k].split("&")[0]+")")
+     			ele.value = redata[k].split("&")[1]
+     			ele.label = redata[k].split("&")[1] +"("+redata[k].split("&")[0]+")"
+     			datas.push(ele)
+     		}
+     		console.log(datas)
+     		 var cascader = layui.cascader;
+     	     cascader({
+     	     	    elem:"#a",
+     	         data: datas,
+     	         success: function (valData,labelData) {
+     	        
+     	             console.log(valData);
+     	             console.log(labelData);
+     	            testPerformance(valData)
+     	             //console.log("kkk")
+     	         }
+     	     });
+         },
+         cache: false
+       });
+      //----
+        
+        
+      
+        
+    });
+</script>
+
+<script type="text/javascript">
+
+var chart = null; // 定义全局变量
+$(document).ready(function() {
+  	//testPerformance()
+});
+ 
+function testPerformance(valData) {
+	Init.WebToast("InGraphDB性能测试中...");
+	$.ajax({
+		url: 'http://localhost:8080/graph-benchmark/highEchart/testPerformance',
+		 data: {graphName:escape(valData)},
+		cache: false,
+		success: function(point) {
+			//| 'QueryExecution' |
+		  	console.log(point)
+		  	 var per = []
+		  	for(var i=50;i<point.length;i++){
+		  		if(point[i]=="| 'where_used2: '+count(*) |"){
+		  			//debugger
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  		else if(point[i]=="| 'generate_structure2: '+count(*) |"){
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  		else if(point[i]=="| 'structure_diff2: '+count(*) |"){
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  		else if(point[i]=="| 'struct_aggr2: '+count(*) |"){
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  		else if(point[i]=="| 'plan: '+count(*) |"){
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  		else if(point[i]=="| 'usage: '+count(*) |"){
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  		else if(point[i]=="| 'statistic: '+count(*) |"){
+		  			per.push(parseInt(point[i+5].split(" ")[0]))
+		  		}
+		  	}
+			console.log(per) 
+			
+			//-----------绘图开始-------
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById('main'));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+	            title: {
+	                text: 'InGraphDB查询测试性能', //标题居中
+	                left:'center'
+	            },
+	            tooltip: {},
+	            legend: {
+	                data:['InGraphDB耗时(ms)'],
+	                x:'right'//图例靠右
+	            },
+	            xAxis: {
+	                data: ["Q1","Q2","Q3","Q4","Q5","Q6","Q7"],
+	            	name:'查询负载'//x轴名称
+	            },
+	            yAxis: {
+	            	name:'ms'//y轴名称
+	            },
+	            series: [{
+	                name: 'InGraphDB耗时(ms)',
+	                type: 'bar',
+	                data: per
+	            }]
+	        };
+	    	//停止加载框
+			Init.ClearToast("#webToast", 1)
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	      //-----------绘图结束-------
+		  },
+	});
+}
+
+</script>
+
+</body>
+</html>

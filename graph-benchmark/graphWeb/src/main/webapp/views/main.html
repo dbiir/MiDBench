@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="views/image/png" sizes="16x16" href="views/images/favicon.png">
+    <title>InGraphDB Benchmark</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="views/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="views/css/helper.css" rel="stylesheet">
+    <link href="views/css/style.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <div class="header">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light" style="background-color: #3c8dbc" >
+                <!-- Logo -->
+                <div class="navbar-header" style="background-color: #357ca5">
+                    <a class="navbar-brand" href='#'>
+                       <font color="white">
+                        <!-- Logo icon -->
+                        <b>InGraphDB </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>Benchmark</span>
+                        </font>
+                    </a>
+                </div>
+                <!-- End Logo -->
+                <div class="navbar-collapse" style="background-color: #3c8dbc">
+                    <!-- toggle and nav items -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                       
+                    </ul>
+                    <!-- User profile and search -->
+                    <ul class="navbar-nav my-lg-0">
+
+                        <!-- Search -->
+                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search here"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        </li>
+                        
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="views/images/users/user.jpg" alt="user" class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                <ul class="dropdown-user">
+                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
+                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
+                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
+                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        <div class="left-sidebar"  style="background-color:#333">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav" style="background-color:#333">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-label"><font color=white>Home</font></li>
+                        
+                        <!-- 控制台start -->
+                        <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">控制台</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <!-- <li><a href="index.html">Ecommerce </a></li> -->
+                                <li><a href='##' onClick='generator()'>图数据(负载)生成</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <!-- <li><a href="index.html">Ecommerce </a></li> -->
+                                <li><a href='###' onClick='visualData()'>图数据展示</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <!-- <li><a href="index.html">Ecommerce </a></li> -->
+                                <li><a href='###' onClick='peformance()'>性能测试</a></li>
+                            </ul>
+                        </li>
+                        <!-- 控制台end -->
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            
+        </div>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper" style="background:#fff;" id="pagewrapper">
+  			<!-- Add Specific Div -->
+  		</div>
+        <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="views/js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="views/js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="views/js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="views/js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="views/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="views/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+	<script src="views/js/lib/highchart/highcharts.js"></script>
+	<script src="views/js/lib/highchart/highcharts-modules-exporting.js"></script>
+	<script src="views/js/lib/highchart/highcharts-zh_CN.js"></script>
+
+	<!--Custom JavaScript -->
+    <script src="views/js/custom.min.js"></script>
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#pagewrapper').load("views/welcome.html");
+		});
+	function generator() {
+		$('#pagewrapper').load("views/genconf.html");
+	}
+	
+		function visualData() {
+			$('#pagewrapper').load("views/graph.html");
+		}
+		function peformance() {
+			$('#pagewrapper').load("views/infos.html");
+		}
+	
+		
+		
+	</script>
+
+</body>
+
+</html>
