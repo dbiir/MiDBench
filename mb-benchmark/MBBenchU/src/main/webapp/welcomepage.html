@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MBBench-U系统设置</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="diycss/animate.css">
+    <link rel="stylesheet" href="diycss/style.css"><link rel="stylesheet" href="diycss/flavr.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="welcomepage.html" class="logo">
+            <span class="logo-mini"><b>GH</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>MBBench-U</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">隐藏菜单</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="header">系统功能菜单</li>
+                <li class="active">
+                    <a href="welcomepage.html">
+                        <i class="fa fa-dashboard"></i><span> 系统设置</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="datagen.jsp">
+                        <i class="fa fa-files-o"></i><span> 海量文件生成</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dblink.jsp">
+                        <i class="fa fa-th"></i> <span> 数据库连接</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>传输负载测试</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="transload.jsp"><i class="fa fa-circle-o"></i> 数据上传负载测试</a></li>
+                        <li><a href="transdown.jsp"><i class="fa fa-circle-o"></i> 数据下载负载测试</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>查询负载测试</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="querysimple.jsp"><i class="fa fa-circle-o"></i> 简单查询负载测试</a></li>
+                        <li><a href="querymulti.jsp"><i class="fa fa-circle-o"></i> 复杂查询负载测试</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>结果查看</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="transresult.html"><i class="fa fa-circle-o"></i> 传输结果查看</a></li>
+                        <li><a href="querysimpleresult.html"><i class="fa fa-circle-o"></i> 简单查询结果查看</a></li>
+                        <li><a href="querymultiresult.html"><i class="fa fa-circle-o"></i> 复杂查询结果查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="comparestart.jsp">
+                        <i class="fa fa-table"></i> <span>结果对比报告</span>
+                        <span class="pull-right-container">
+
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        <i class="fa fa-calendar"></i> <span>帮助文档</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-blue">new</small>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="link.html">
+                        <i class="fa fa-envelope"></i> <span>联系我们</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-yellow">call me</small>
+                        </span>
+                    </a>
+                </li>
+                <li class="header">信息提示</li>
+                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>重要内容</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>警告内容</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>提示信息</span></a></li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                MBBench-U
+                <small>本系统属于<b>“工业大数据库评测系统”</b>项目中对于非结构化数据库评测系统. </small>
+            </h1>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <i class="fa fa-tv"></i>
+                            <h3 class="box-title">系统设置</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="alert alert-danger alert-dismissible">
+                                <h4><i class="fa fa-arrow-down"></i> 选择将要评测的数据库</h4>
+                                <select class="form-control" onchange="changedbinfo()" id="selectdbname">
+                                    <option value="MongoDB">MongoDB</option>
+                                    <option value="ElasticSearch">ElasticSearch</option>
+                                    <option value="CouchDB">CouchDB</option>
+                                </select>
+                            </div>
+                            <div class="alert alert-info alert-dismissible">
+
+                                <h4><i class="icon fa fa-info"></i> 请输入结果日志存储路径</h4>
+                                <input type="text" class="form-control" id="logpath" placeholder="请输出总路径">
+                            </div>
+                            <div class="alert alert-warning alert-dismissible">
+                                <h4><i class="icon fa fa-warning"></i> 提示!</h4>
+                                请确保您输入的结果存放路径是正确的，如有不对的地方，后果自负！
+                            </div>
+                            <div class="alert alert-success alert-dismissible">
+                                <h4><i class="icon fa fa-check"></i> 确认设置</h4>
+                                <input type="button" class="btn btn-block btn-info" value="确认信息" onclick="submitbaseinfo()" />
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-6">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <i class="fa fa-bullhorn"></i>
+                            <h3 class="box-title">系统特点</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="callout callout-danger">
+                                <h4>简单易用的操作</h4>
+                                <p>MBBench-U界面友好，简单易用，文件生成、负载测试、结果显示等操作都实现一键式执行，让不同知识背景的用户都可以无障碍使用本系统。</p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>多种类的主流数据库评测</h4>
+                                <p>MBBench-U支持多种当下主流的非结构化数据库的评测，如：MongoDB、CouchBase、ElasticSearch等。用户还可以进行二次开发，只需实现特定的方法类，就可以对新的数据库进行评测。</p>
+                            </div>
+                            <div class="callout callout-warning">
+                                <h4>全面精准的负载测试</h4>
+                                <p>MBBench-U包含全面精准的负载测试，负载设计考量工业领域中的制造业在非结构化数据的典型应用，如版本管理测试、异常文件检测测试、热点文件查询测试等具有特色的负载测试，满足用户不同层面的评测需求。</p>
+                            </div>
+                            <div class="callout callout-success">
+                                <h4>多样化的结果展示</h4>
+
+                                <p>MBBench-U为用户提供了多样化的负载测试结果展示，将结果以图形、表格等形式展示出来，使结果一目了然，方便用户的整体把握。此外，MBBench-U还提供结果的版本管理以及结果的对比展示，提供评测结果对比报告。</p>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <div id="MongoDBInfo">
+                <div class="callout callout-info">
+                    <h4>MongoDB</h4>
+                    <p>高性能、易部署、易使用的分布式文档存储数据库</p>
+                </div>
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">MongoDB简介</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fa fa-minus"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性。
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button class="btn btn-block btn-primary" onclick="javascript:window.open('https://www.mongodb.com/download-center?jmp=nav')">点击下载</button>
+                    </div>
+                </div>
+            </div>
+            <div id="ElasticSearchInfo" style="display: none">
+                <div class="callout callout-info">
+                    <h4>ElasticSearch</h4>
+                    <p>分布式、可扩展、实时的搜索与数据分析引擎的数据库</p>
+                </div>
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ElasticSearch简介</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fa fa-minus"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        Elasticsearch 是一个分布式、可扩展、实时的搜索与数据分析引擎。 它能从项目一开始就赋予你的数据以搜索、分析和探索的能力，这是通常没有预料到的。 它存在还因为原始数据如果只是躺在磁盘里面根本就毫无用处。
+                        Elasticsearch 不仅仅只是全文搜索，我们还将介绍结构化搜索、数据分析、复杂的语言处理、地理位置和对象间关联关系等。 我们还将探讨如何给数据建模来充分利用 Elasticsearch 的水平伸缩性，以及在生产环境中如何配置和监视你的集群。
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button class="btn btn-block btn-primary" onclick="javascript:window.open('https://www.elastic.co/downloads/elasticsearch')">点击下载</button>
+                    </div>
+                </div>
+            </div>
+            <div id="CouchDBInfo" style="display: none">
+                <div class="callout callout-info">
+                    <h4>CouchDB</h4>
+                    <p>分布式、面向文档的数据库、存储半结构化的数据的数据库</p>
+                </div>
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">CouchDB简介</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fa fa-minus"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        CouchDB是用Erlang开发的面向文档的数据库系统，最近刚刚发布了1.0版本（2010年7月14日）。CouchDB不是一个传统的关系数据库，而是面向文档的数据库，其数据存储方式有点类似lucene的index文件格式，CouchDB最大的意义在于它是一个面向web应用的新一代存储系统，事实上，CouchDB的口号就是：下一代的Web应用存储系统。
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button class="btn btn-block btn-primary" onclick="javascript:window.open('http://couchdb.apache.org/#download')">点击下载</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, 制作者<i class="fa fa-heart heart"></i> by <a href="http://deke.ruc.edu.cn/ ">数据工程与知识工程实验室</a>. 版权属于 <a href="http://info.ruc.edu.cn" target="_blank" title="中国人民大学信息学院">中国人民大学信息学院</a></strong>
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<script src="diyjs/common.js"></script>
+<script src="diyjs/flavr.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.notify({
+            icon: 'ti-gift',
+            message: "欢迎使用 <b>工业大数据-非结构化数据库评测系统</b>"
+
+        },{
+            type: 'success',
+            timer: 4000
+        });
+
+    });
+
+    function changedbinfo() {
+        var vs = $('select option:selected').val();
+        if(vs == "MongoDB"){
+            $("#MongoDBInfo").show();
+            $("#ElasticSearchInfo").hide();
+            $("#CouchDBInfo").hide();
+        }
+
+        if(vs == "ElasticSearch"){
+            $("#MongoDBInfo").hide();
+            $("#ElasticSearchInfo").show();
+            $("#CouchDBInfo").hide();
+        }
+
+        if(vs == "CouchDB"){
+            $("#MongoDBInfo").hide();
+            $("#ElasticSearchInfo").hide();
+            $("#CouchDBInfo").show();
+        }
+
+    }
+
+    function submitbaseinfo() {
+        var dbname = $('select option:selected').val();
+        var logpath = $('#logpath').val();
+
+        $.ajax({
+            type:"post",
+            url:"/makedir",
+            async:true,
+            data:{
+                "dbname":dbname,
+                "logpath":logpath,
+                "dirtype":"setlogpath"
+            },
+            success:function(data)
+            {
+                if(data.result == "success"){
+                    new $.flavr("设置成功");
+                }
+            },
+            dataType:"json",
+            error:function()
+            {
+
+            }
+        });
+    }
+</script>
+</body>
+</html>

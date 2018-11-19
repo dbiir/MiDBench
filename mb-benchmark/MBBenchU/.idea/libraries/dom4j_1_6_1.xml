@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="dom4j-1.6.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib/sigar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib/org.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib/mongo-java-driver-3.4.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib/log4j.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib" />
+    </NATIVE>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/target/MBBench-U/WEB-INF/lib/org.json.jar!/" />
+    </SOURCES>
+  </library>
+</component>

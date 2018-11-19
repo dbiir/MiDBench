@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.ruc.edu</groupId>
+  <artifactId>MBBench-U</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>MBBench-U Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+      <!-- https://mvnrepository.com/artifact/javax.jms/jms -->
+      <dependency>
+          <groupId>javax.jms</groupId>
+          <artifactId>jms</artifactId>
+          <version>1.1</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.sun.jdmk/jmxtools -->
+      <dependency>
+          <groupId>com.sun.jdmk</groupId>
+          <artifactId>jmxtools</artifactId>
+          <version>1.2.1</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.sun.jmx/jmxri -->
+      <dependency>
+          <groupId>com.sun.jmx</groupId>
+          <artifactId>jmxri</artifactId>
+          <version>1.2.1</version>
+      </dependency>
+
+      <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-websocket</artifactId>
+      <version>7.0.79</version>
+    </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>3.1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>2.3</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+      <dependency>
+          <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+          <version>1.6.1</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+      <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>1.2.17</version>
+		</dependency>
+      <!-- https://mvnrepository.com/artifact/org.json/org.json -->
+      <dependency>
+          <groupId>org.json</groupId>
+          <artifactId>org.json</artifactId>
+          <version>chargebee-1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.fusesource</groupId>
+          <artifactId>sigar</artifactId>
+          <version>1.6.4</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+      <dependency>
+          <groupId>org.mongodb</groupId>
+          <artifactId>mongo-java-driver</artifactId>
+          <version>3.4.2</version>
+      </dependency>
+	  <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+      <dependency>
+          <groupId>org.elasticsearch.client</groupId>
+          <artifactId>transport</artifactId>
+          <version>6.2.3</version>
+      </dependency>
+	  <dependency>
+          <groupId>com.NSClientNM</groupId>
+          <artifactId>NSClientNM</artifactId>
+          <version>1.0.0</version>
+      </dependency>
+	  <dependency>
+          <groupId>com.NSClientNM</groupId>
+          <artifactId>NSENGINENM</artifactId>
+          <version>1.0.0</version>
+      </dependency>	 
+<!-- https://mvnrepository.com/artifact/com.couchbase.client/java-client -->
+<dependency>
+    <groupId>com.couchbase.client</groupId>
+    <artifactId>java-client</artifactId>
+    <version>2.6.1</version>
+</dependency>	  
+  </dependencies>
+  <build>
+    <finalName>MBBench-U</finalName>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+</project>

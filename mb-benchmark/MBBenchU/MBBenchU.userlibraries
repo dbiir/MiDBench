@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Java EE 6-Java EE 6">
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.jms.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.annotation.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.transaction.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.servlet.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.ejb.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.resource.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.persistence.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.servlet.jsp.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/lib/javax.servlet.jsp.jstl.jar" />
+  </library>
+  <library name="Maven: com.sun.jdmk:jmxtools:1.2.1" />
+  <library name="Maven: com.sun.jmx:jmxri:1.2.1" />
+  <library name="Maven: dom4j:dom4j:1.6.1">
+    <archive path="D:/maven/localWarehouse/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
+  </library>
+  <library name="Maven: javax.jms:jms:1.1">
+    <archive path="D:/maven/localWarehouse/javax/jms/jms/1.1/jms-1.1.jar" />
+  </library>
+  <library name="Maven: javax.servlet:javax.servlet-api:3.1.0">
+    <archive path="D:/maven/localWarehouse/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar" />
+  </library>
+  <library name="Maven: javax.servlet:servlet-api:2.3">
+    <archive path="D:/maven/localWarehouse/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar" />
+  </library>
+  <library name="Maven: junit:junit:3.8.1">
+    <archive path="D:/maven/localWarehouse/junit/junit/3.8.1/junit-3.8.1.jar" />
+  </library>
+  <library name="Maven: log4j:log4j:1.2.17">
+    <archive path="D:/maven/localWarehouse/log4j/log4j/1.2.17/log4j-1.2.17.jar" />
+  </library>
+  <library name="Maven: org.apache.tomcat.embed:tomcat-embed-core:7.0.79">
+    <archive path="D:/maven/localWarehouse/org/apache/tomcat/embed/tomcat-embed-core/7.0.79/tomcat-embed-core-7.0.79.jar" />
+  </library>
+  <library name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:7.0.79">
+    <archive path="D:/maven/localWarehouse/org/apache/tomcat/embed/tomcat-embed-websocket/7.0.79/tomcat-embed-websocket-7.0.79.jar" />
+  </library>
+  <library name="Maven: org.fusesource:sigar:1.6.4">
+    <archive path="D:/maven/localWarehouse/org/fusesource/sigar/1.6.4/sigar-1.6.4.jar" />
+  </library>
+  <library name="Maven: org.json:org.json:chargebee-1.0">
+    <archive path="D:/maven/localWarehouse/org/json/org.json/chargebee-1.0/org.json-chargebee-1.0.jar" />
+  </library>
+  <library name="Maven: org.mongodb:mongo-java-driver:3.4.2">
+    <archive path="D:/maven/localWarehouse/org/mongodb/mongo-java-driver/3.4.2/mongo-java-driver-3.4.2.jar" />
+  </library>
+  <library name="Maven: xml-apis:xml-apis:1.0.b2">
+    <archive path="D:/maven/localWarehouse/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar" />
+  </library>
+  <library name="apache-tomcat-7.0">
+    <archive path="D:/Program Files/apache-tomcat-7.0.79" />
+  </library>
+  <library name="dom4j-1.6.1">
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/src/main/webapp/WEB-INF/lib/dom4j-1.6.1.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/src/main/webapp/WEB-INF/lib/log4j.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/src/main/webapp/WEB-INF/lib/mongo-java-driver-3.4.2.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/src/main/webapp/WEB-INF/lib/org.json.jar" />
+    <archive path="D:/GitHub/mbBench-U/MBBenchU/src/main/webapp/WEB-INF/lib/sigar.jar" />
+  </library>
+  <library name="lib" />
+  <library name="scala-sdk-2.11.0">
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-actors-2.11.0.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-actors-migration_2.11-1.1.0.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-library.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-parser-combinators_2.11-1.0.1.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-reflect.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-swing_2.11-1.0.1.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-xml_2.11-1.0.1.jar" />
+  </library>
+  <library name="scala-sdk-2.11.0 (2)">
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-actors-2.11.0.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-actors-migration_2.11-1.1.0.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-library.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-parser-combinators_2.11-1.0.1.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-reflect.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-swing_2.11-1.0.1.jar" />
+    <archive path="D:/Program Files (x86)/scala-2.11.0/lib/scala-xml_2.11-1.0.1.jar" />
+  </library>
+</eclipse-userlibraries>
+

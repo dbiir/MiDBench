@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setting id="0">
+	<!--里面的内容表示基本参数设定-->
+	<windsetting id="0">
+		<time>100</time> 
+		<zs>1</zs>
+		<zc>40</zc>
+		<js>10</js>
+		<je>80</je>
+		<jk>20</jk>
+		<uv>10000</uv>
+	</windsetting>
+	<!--里面的内容表示区域及风速参数设定-->
+	<area id="1">
+		<areaname id="0">
+			<name>DongBei</name>
+			<bw>2.89</bw>
+			<mzw>0.6</mzw>
+			<mjw>0.3</mjw>
+			<msw>0.5</msw>
+		</areaname>
+		<areaname id="1">
+			<name>HuaBei</name>
+			<bw>2.67</bw>
+			<mzw>0.54</mzw>
+			<mjw>0.27</mjw>
+			<msw>0.35</msw>
+		</areaname>
+		<areaname id="2">
+			<name>DongNan</name>
+			<bw>2.34</bw>
+			<mzw>0.46</mzw>
+			<mjw>0.23</mjw>
+			<msw>0.2</msw>
+		</areaname>
+		<areaname id="3">
+			<name>XiNan</name>
+			<bw>1.65</bw>
+			<mzw>0.34</mzw>
+			<mjw>0.17</mjw>
+			<msw>0.1</msw>
+		</areaname>
+		<areaname id="4">
+			<name>XiBei</name>
+			<bw>2.54</bw>
+			<mzw>0.5</mzw>
+			<mjw>0.25</mjw>
+			<msw>0.4</msw>
+		</areaname>
+		<areaname id="5">
+			<name>QingZangGaoYuan</name>
+			<bw>2.51</bw>
+			<mzw>0.48</mzw>
+			<mjw>0.24</mjw>
+			<msw>0.3</msw>
+		</areaname>
+	</area>
+</setting>
