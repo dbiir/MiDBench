@@ -170,9 +170,9 @@ public class RemoteExecuteCommand
 	//测试
 	public static void main( String[] args )
 	{
-		String IP = "10.77.50.193";
-		String user = "mark";
-		String passwd  = "xiaojian";
+		String IP = "ip";
+		String user = "xxx";
+		String passwd  = "xxxxx";
 		RemoteExecuteCommand rec=new RemoteExecuteCommand(IP, user, passwd);  
         //执行命令  
       //  System.out.println(rec.execute("ls"));  

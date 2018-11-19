@@ -63,49 +63,6 @@ public class HignChartsController {
 		return list;
 	}
 
-	
-
-//	@RequestMapping(value = "/startGens")
-//	@ResponseBody
-//	public Object genConf( @RequestParam(value = "username") String username,  @RequestParam(value = "passwd") String passwd,
-//			@RequestParam(value = "nodetype") String nodetype,@RequestParam(value = "edgetype") String edgetype,
-//			@RequestParam(value = "querysize") String querysize,@RequestParam(value = "graphsize") String graphsize) {
-//		System.out.println("genConf Parameters:"+username+passwd+nodetype+edgetype+querysize+graphsize);
-//		
-////		try {
-////			graphsize = URLEncoder.encode(graphsize, "UTF-8");
-////			System.out.println(graphsize);
-////		} catch (UnsupportedEncodingException e1) {
-////			e1.printStackTrace();
-////		}
-//		
-//		String url = Config.GRAPH_ADDR+"/startGen?"+username+"&"+passwd
-//				+"&"+nodetype+"&"+edgetype+"&"+querysize+"&"+graphsize;
-//		System.out.println("url:"+url);
-//		String resultStr = "";
-//		try {
-//			ClientHttpRequest request  = new SimpleClientHttpRequestFactory().createRequest(new URI(url), HttpMethod.GET);
-//			ClientHttpResponse response = request.execute();
-//			
-//			if (response.getStatusCode()==HttpStatus.OK) {
-//				System.out.println("return ok");
-//			}
-//			InputStream is = response.getBody();
-//			byte bytes[] = new byte[(int)response.getBody().available()];
-//			is.read(bytes);
-//			resultStr = new String(bytes, Charset.forName("utf-8"));
-//			System.out.println(resultStr);
-//		} catch (IOException e) {
-//			resultStr = e.getMessage();
-//			e.printStackTrace();
-//		} catch (URISyntaxException e) {
-//			resultStr = e.getMessage();
-//			e.printStackTrace();
-//		}
-//
-//		return ParseUtil.toObject(resultStr);
-//	}
-
 
 	/**
 	 * 向生成器发送请求进行数据生成
