@@ -1,6 +1,6 @@
-# IBDB
+# MiDBench:graph-benchmark
 
-IndustrialBigDataBench: a Big Data Benchmark Suite for Industrial Big Data System
+MiDBench: Multimodel Industrial Big Data Benchmark
 
 graph-benchmark
 GenGraph--generator
