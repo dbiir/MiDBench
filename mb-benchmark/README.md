@@ -1,6 +1,6 @@
-# IBDB
+# MiDBench:MBBenchU
 
-IndustrialBigDataBench: a Big Data Benchmark Suite for Industrial Big Data System
+MiDBench: Multimodel Industrial Big Data Benchmark
 
 MBBenchU 
 
